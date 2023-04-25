@@ -4,10 +4,10 @@ public class ClockAngle
 {
     public static void Main(string[] args)
     {
-        start();
+        getInput();
     }
     
-    static void start(){
+    static void getInput(){
         
         double hours = getH();
         while(hours > 12 || hours <= 0){
