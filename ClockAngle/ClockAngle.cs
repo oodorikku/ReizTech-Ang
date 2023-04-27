@@ -4,16 +4,16 @@ public class ClockAngle
 {
     public static void Main(string[] args)
     {
-        getInput();
+        start();
     }
     
-    static void getInput(){
+    static void start(){
         
-        double hours = getH();
+        int hours = getH();
         while(hours > 12 || hours <= 0){
             hours = getH();
         }
-        double mins = getM();
+        int mins = getM();
         while(mins > 59 || mins < 0){
             mins = getM();
         }
@@ -28,26 +28,21 @@ public class ClockAngle
         Console.WriteLine(result + "°");
     }
 
-    static double getH(){
+    static int getH(){
         Console.WriteLine("Enter hours: ");
         return Convert.ToInt32(Console.ReadLine());
     }
 
-    static double getM(){
+    static int getM(){
         Console.WriteLine("Enter minutes: ");
         return Convert.ToInt32(Console.ReadLine());
     }
     
-    static double solve(double hours, double mins){
-        double temp1 = (hours + mins/60) * 30;
+    static double solve(int hours, int mins){
+        double temp1 = (Convert.ToDouble(hours) + Convert.ToDouble(mins)/60) * 30;
         if (hours >= 6){
             double temp2 = mins * 6;
             temp1 = Math.Abs(temp1 - temp2);
-        }
-        if (mins > 30){
-            double temp2 = mins * 6;
-            temp1 = Math.Abs(temp1 - temp2);
-            temp1 = 360 - temp1;
         }
         return temp1;
     }
